@@ -1,6 +1,7 @@
 package net.hashyy.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.hashyy.tutorialmod.block.ModBlocks;
 import net.hashyy.tutorialmod.item.ModCreativeModeTabs;
 import net.hashyy.tutorialmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
@@ -30,6 +31,7 @@ public class TutorialMod
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -51,6 +53,7 @@ public class TutorialMod
         if(event.getTab() == ModCreativeModeTabs.TUTORIAL_TAB) {
             event.accept(ModItems.BLACK_OPAL);
             event.accept(ModItems.RAW_BLACK_OPAL);
+            event.accept(ModBlocks.BLACK_OPAL_BLOCK);
         }
     }
 
